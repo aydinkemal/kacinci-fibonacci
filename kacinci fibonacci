@@ -1,0 +1,52 @@
+#include<stdio.h>
+#include"Windows.h"
+int fibo(int );
+int main()
+{
+	int girilen,sonuc;
+	
+	printf("Fibonacci sayi dizisinde kacinci elemani goruntulemek istiyorsunuz ? : ");
+	scanf_s("%d", &girilen);
+	sonuc = fibo(girilen);
+	
+	system("CLS");
+	printf("%d.siradaki fibonacci sayisinin degeri %d \n", girilen, sonuc);
+	return 0;
+}
+int fibo(int girilen)
+{
+
+	int fibonacciSayisi1, fibonacciSayisi2, fibonacciSayisi3;
+
+	fibonacciSayisi3 = 1;
+
+	if (girilen == 1)
+	{
+		fibonacciSayisi1 = 1;
+		fibonacciSayisi3 = 1;
+		return fibonacciSayisi1;
+	}
+	if (girilen == 2)
+	{
+		fibonacciSayisi2 = 1;
+		fibonacciSayisi3 = 1;
+		return fibonacciSayisi2;
+		
+	}
+	if (girilen > 2)
+	{
+		fibonacciSayisi1 = 1;
+		fibonacciSayisi2 = 1;
+		fibonacciSayisi3 = fibonacciSayisi1 + fibonacciSayisi2;
+		for (int i = 4; i <= girilen; i++)//buradaki i degeri bizden istenen 
+			//kacinci fibonacci sayisi oldugunu gösteriyor
+		{
+			fibonacciSayisi1 = fibonacciSayisi2;
+			fibonacciSayisi2 = fibonacciSayisi3;
+			fibonacciSayisi3 = fibonacciSayisi1 + fibonacciSayisi2;
+			
+		}
+		return fibonacciSayisi3;
+	}
+
+}
